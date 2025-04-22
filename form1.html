@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sathya</title>
+    <style>
+    form>div{
+        padding: 20px;
+        background-color: transparent;
+        }
+        .error{
+            color:red;
+        }
+    </style>
+    <link rel="stylesheet" href="form1.css">
+</head>
+<body>
+    <div class = "headers">
+        <div class="col1">
+            <ul type="none">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+        <div class="col2">
+            <h1>Sathya_Studio</h1>
+        </div>
+    </div>
+
+    <div class="big">
+    <div class="body">
+    <form>
+        <div class="pp">
+            <label class="pp">Name</label>
+        <input class = "tt" type="text" id="name" name="AS" placeholder="Enter name">
+        <div class ="error"> </div>
+        </div>
+        
+        <br>
+       
+        <div class="pp">
+            <label class="pp">Phone</label>
+            <input class = "tt" type="number" id = "Number" placeholder="Enter Number">
+            <div class ="error"> </div>
+        </div>
+
+        <br>
+
+        <div class="pp">
+            <label class="pp">EMail</label>
+            <input type="email" class = "tt" id = "Email"  required>
+            <div class ="error"> </div>
+        </div>
+        
+        <br>
+
+        <div>
+            <label class="pp">Travel</label>
+            <input type="checkbox" id="F1" name="Travel" value="Flight"><label for="F1">Flight</label>
+            <input type="checkbox" id="Bu" name="Travel" value="Bus"><label for="Bu">Bus</label>
+            <input type="checkbox" id="Tr" name="Travel" value="Train"><label for="Tr">Train</label>
+            <div class ="error"> </div>
+        </div>
+        
+        <br>
+        
+        <div class="button">
+            <button type="button" onclick="submitdata()">submit</button>
+        </div>
+
+
+
+    </form>
+</div>
+</div>
+<script>
+    function submitdata(){
+    let name1 = document.getElementById("name");
+    console.log(name1);
+    console.log(name1.value);
+    let finalname1 = name1.value;
+
+    let Email = document.getElementById("Email");
+    console.log(Email);
+    console.log(Email.value);
+    let finalEmail = Email.value;
+
+    let Number = document.getElementById("Number");
+    console.log(Number);
+    console.log(Number.value);
+    let finalNumber = Number.value;
+
+    let checks =document.getElementsByName("Travel");
+    console.log(checks);
+
+    let arr=[];
+    for(let Travel of checks){
+        if(Travel.checked){
+        arr.push(Travel.value);
+
+        }
+    }
+    console.log(arr);
+ let sathya = arr.join();
+
+    
+    
+   
+ console.log(finalname1);
+ console.log(finalEmail);
+ console.log(finalNumber);
+ console.log("finalTravel");
+
+ 
+if(name1.value===''){
+    setError(name1,"*Name is Empty")
+ }
+ else{
+    setSuccess(name1);
+   }
+
+
+if(Email.value===''){
+    setError(Email,"*Email is Empty")
+ }
+ else{
+    setSuccess(Email);
+   }
+
+if(Number.value===''){
+    setError(Number,"*Phone is Empty")
+ }
+ else{
+    setSuccess(Number);
+   }
+
+if(sathya===''){
+    setError(checks[0],"*travelis Empty")
+ }
+ else{
+    setSuccess(checks[0]);
+   }
+
+
+    }
+
+function setError(element,msg){
+    let parents=element.parentElement;
+    let resfinal=parents.querySelector(".error");
+    resfinal.innerText=msg;
+}
+
+function setSuccess(element){
+    let parents=element.parentElement;
+    let resfinal=parents.querySelector(".error");  
+      resfinal.innerText="";
+}   
+</script>
+</body>
+</html>
